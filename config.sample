@@ -1,0 +1,4 @@
+# config.yaml file
+
+port: COM7
+baud: 9600
