@@ -76,9 +76,7 @@ while 1:
         time.sleep(1)
         arduinoSerial.write(b"u")
         time.sleep(1)
-        arduinoSerial.write(b"u")
-        time.sleep(1)
 
         arduinoSerial.write(b"i")
-        time.sleep(8)
+        time.sleep(4)
         arduinoSerial.write(b"i")
