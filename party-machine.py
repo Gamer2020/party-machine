@@ -16,7 +16,9 @@ config_file = "config.yaml"
 
 
 def check_for_enemy():
-    marker_location = pyscreeze.locateCenterOnScreen("img/enemy/enemy_marker.png")
+    marker_location = pyscreeze.locateCenterOnScreen(
+        "img/enemy/enemy_marker.png", grayscale=True
+    )
 
     if marker_location == None:
         return False
@@ -59,22 +61,16 @@ while 1:
     time.sleep(1)
 
     if check_for_enemy() == True:
-        arduinoSerial.write(b"r")
-        time.sleep(1)
         while check_for_enemy():
+            arduinoSerial.write(b"r")
             time.sleep(1)
         arduinoSerial.write(b"u")
-        time.sleep(0.5)
-        arduinoSerial.write(b"u")
-        time.sleep(0.5)
-        arduinoSerial.write(b"u")
-        time.sleep(0.5)
-        arduinoSerial.write(b"u")
-        time.sleep(0.5)
-        arduinoSerial.write(b"u")
-        time.sleep(0.5)
-
         time.sleep(1)
+        arduinoSerial.write(b"u")
+        time.sleep(1)
+        arduinoSerial.write(b"u")
+        time.sleep(1)
+
         arduinoSerial.write(b"i")
-        time.sleep(10)
+        time.sleep(8)
         arduinoSerial.write(b"i")
